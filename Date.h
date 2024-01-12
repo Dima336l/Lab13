@@ -20,9 +20,9 @@ class Date {
   bool operator>(const Date& other);
   bool operator<(const Date& other);
   bool operator!=(const Date& other);
-  int getDay();
-  int getMonth();
-  int getYear();
+  int getDay() const;
+  int getMonth() const;
+  int getYear() const;
   void displayDate();
 };
 
