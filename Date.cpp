@@ -50,9 +50,17 @@ bool Date::operator!=(const Date& other) {
 }
 
 bool Date::operator>(const Date& other) {
-  return ((day > other.getDay() && (month > other.getMonth()) && (year > other.getYear())));
+  return ((year > other.getYear()) ||
+	  (year == other.getYear() && month > other.getMonth()) ||
+	  (year == other.getYear() && month == other.getMonth() && day > other.getDay()));
 }
 
 bool Date::operator<(const Date& other) {
-  return ((day < other.getDay() && (month < other.getMonth()) && (year < other.getYear())));
+  return ((year < other.getYear()) ||
+	  (year == other.getYear() && month < other.getMonth()) ||
+	  (year == other.getYear() && month == other.getMonth() && day < other.getDay()));
+}
+
+void Date::displayDate() {
+  cout << "(" << day << ", " << month << ", " << year << ")" << endl;
 }

@@ -16,6 +16,10 @@ int main() {
     cout << "The result of inequality " << areDatesDifferent << endl;
     cout << "The result of greater than " << isDate2Bigger << endl;
     cout << "The result of less than " << isDate2Smaller << endl;
+    cout << "Displaying date1: " ;
+    date->displayDate();
+    cout << "Displaying date2: ";
+    date2->displayDate();
     delete date;
     delete date2;
   } catch (const std::invalid_argument& e) {
