@@ -2,22 +2,26 @@
 #define LIST_H
 
 using namespace std;
+#include <stdexcept>
+#include <cstddef>
+#include <iostream>
+#include <vector>
 
 template <typename T>
 
 class List {
- private:
-  const int max_size = 100;
-  T data[max_size];
-  size_t currentSize;
- public:
+private:
+  vector <T> data;
+  int currentSize;
+  int MaxSize;
+public:
+  List();
   void add (const T& item);
   T get (size_t i) const;
   void remove(size_t i);
   size_t size() const;
-}
-
-
-
+  template <typename U>
+  friend std::ostream& operator<<(std::ostream& out, const List<U>& list);
+};
 
 #endif
