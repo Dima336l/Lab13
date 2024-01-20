@@ -28,7 +28,7 @@ int main() {
   }
 
   std::cout << std::endl;
-  List<int> intList;
+  List<int,5> intList;
   intList.add(10);
   intList.add(30);
   intList.add(33);
@@ -37,7 +37,7 @@ int main() {
   std::cout << "Value at index 0: " << intList.get(0) << std::endl;
   std::cout << "Printing the list: " << intList << std::endl;
   
-  List<std::string> strList;
+  List<std::string,5> strList;
   strList.add("Dima");
   strList.add("Andrei");
   strList.add("Vanea");
@@ -46,7 +46,7 @@ int main() {
   std::cout << "Value at index 0: " << strList.get(0) << std::endl;
   std::cout << "Printing the list: " << strList << std::endl;
 
-  List<float> floatList;
+  List<float,5> floatList;
   floatList.add(1.5f);
   floatList.add(2.5f);
   floatList.add(3.5f);
@@ -55,7 +55,7 @@ int main() {
   std::cout << "Value at index 0: " << floatList.get(0) << std::endl;
   std::cout << "Printing the list: " << floatList << std::endl;
 
-  List<double> doubleList;
+  List<double,5> doubleList;
   doubleList.add(1.2);
   doubleList.add(2.2);
   doubleList.add(3.3);
@@ -63,4 +63,12 @@ int main() {
   std::cout << "List size: " << doubleList.size() << std::endl;
   std::cout << "Value at index 0: " << doubleList.get(0) << std::endl;
   std::cout << "Printing the list: " << doubleList << std::endl;
+
+  List<int, 10> intList1;
+  std::cout <<"Int List with 10 elements created: " << intList1 << std::endl;
+  for (int i = 0; i < 10; i++) {
+    intList1.add(i*i);
+  }
+  intList1.remove(3);
+  std::cout << "Int List after modification: " << intList1 << std::endl;
 }
