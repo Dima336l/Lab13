@@ -1,4 +1,4 @@
-#ifndef LIST_H
+ #ifndef LIST_H
 #define LIST_H
 
 using namespace std;
@@ -27,10 +27,23 @@ public:
   }
   void remove(size_t i) {
     data.erase(data.begin() + i);
+    currentSize--;
   }
 
-  T get(size_t i) const {
-    return data.at(i);
+  T get(size_t i) {
+    if (i < currentSize) {
+      return data.at(i);
+    } else {
+      throw std::out_of_range("Index out of bounds!");
+    }
+  }
+
+  T& operator[](size_t i) {
+    if (i < currentSize) {
+      return data.at(i);
+    } else {
+      throw std::out_of_range("Index out of bounds!");
+    }
   }
 
   
@@ -39,11 +52,14 @@ public:
   }
   friend std::ostream& operator<<(std::ostream& os, const List<T,sizeMax>& list) {
     os << "[";
-    long unsigned int listSize = list.data.size();
-    for (long unsigned int i = 0; i < listSize - 1; i++) {
-      os << list.data.at(i) << " ";
+    long unsigned int listSize = list.currentSize;
+    if (list.currentSize > 0) {
+      for (long unsigned int i = 0; i < listSize - 1; i++) {
+	os << list.data.at(i) << " ";
+      }
+      os << list.data.at(listSize - 1);
     }
-    os << list.data.at(listSize - 1) << "]" << std::endl;
+    std::cout << "]" << std::endl;
     return os;
   }
   

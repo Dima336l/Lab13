@@ -65,10 +65,17 @@ int main() {
   std::cout << "Printing the list: " << doubleList << std::endl;
 
   List<int, 10> intList1;
-  std::cout <<"Int List with 10 elements created: " << intList1 << std::endl;
+  std::cout << "Int List before modification: " << intList1 << std::endl;
   for (int i = 0; i < 10; i++) {
     intList1.add(i*i);
   }
   intList1.remove(3);
-  std::cout << "Int List after modification: " << intList1 << std::endl;
+  std::cout << "Int List after modification: " << intList1 << std::endl << std::endl;
+
+  try {
+    std::cout << "Testing [] operator: " << intList1[8] << std::endl;
+    std::cout << "Testing [] operator: " << intList1[10] << std::endl;
+  } catch (const std::out_of_range& e) {
+    std::cerr << e.what() << std::endl;
+  }
 }
